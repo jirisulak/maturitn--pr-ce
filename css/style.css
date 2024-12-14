@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.text-primar {
+    color: white;
+}
+
+#navbar {
+    width: 100%; /* Navigační panel zabírá celou šířku stránky */
+    height: 85px;
+    padding: 5px 20px; /* Přidá odsazení zleva a zprava */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo a menu na opačné strany */
+    box-sizing: border-box; /* Zajistí, že padding se započítá do celkové šířky */
+}
+
+.logo {
+    width: 200px;
+    position: relative;
+    padding-bottom: 23px;
+    
+}
+
+#navbar ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+
+#navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-size: 15px; /* Nastaví menší velikost pro odkazy v menu */
+    
+
+}
+
+
+#navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background-color: rgb(246, 0, 0);
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+}
+
+#navbar ul li:hover:after{
+    width: 100%;
+
+
+}
+
+#showcase{
+    background: red url("../img/uvodní.jpg") no-repeat center center/cover;
+    height: 75vh;
+    color: rgb(255, 255, 255); 
+
+}
+
+
+
+#showcase .showcase-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    padding: 2rem 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.btn {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+
+
+.l-heading {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.lead{
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+.footer{
+    background-color: black;
+    height: 50px;
+    color: white;
+    justify-content: center;
+
+}
+
+
+
+
+
+
