@@ -8,10 +8,21 @@
     font-family: 'Roboto', sans-serif;
 }
 
-body{
+
+  /* Základní nastavení pro mobilní zařízení */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #eeeeee;
 }
 
+/* Základní styl pro mobilní zařízení */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+}
 
 
 
@@ -21,54 +32,40 @@ body{
     color: white;
 }
 
+/* Základní styly pro navigaci */
 #navbar {
-    position: sticky;
-    top: 0;
-    width: 100%; /* Navigační panel zabírá celou šířku stránky */
-    height: 85px;
-    padding: 5px 20px; /* Přidá odsazení zleva a zprava */
-    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; /* Logo a menu na opačné strany */
-    box-sizing: border-box; /* Zajistí, že padding se započítá do celkové šířky */
-    z-index: 1000; /* Pokud máte jiný obsah nad navbar, zajistěte, že navbar bude vždy nahoře */
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1); /* Mírný stín pro oddělení od zbytku obsahu */
-
+    padding: 10px 20px;
+    background-color: #fff; /* Můžete upravit dle potřeby */
 }
 
 
-
-.logo {
-    width: 200px;
-    position: relative;
-    padding-bottom: 20px;
-
-   
-    
-}
 
 #navbar ul {
     display: flex;
-    list-style: none;
-    margin: 0;
+    list-style-type: none;
     padding: 0;
+    margin: 0;
 }
-
 #navbar ul li {
-    display: inline-block;
-    margin: 0 15px;
-    position: relative;
+    margin-right: 20px;
 }
 
 #navbar ul li a {
-    color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 15px; /* Nastaví menší velikost pro odkazy v menu */
+    color: #000; /* Můžete upravit dle potřeby */
+    font-size: 16px;
+}
+
+#navbar .logo {
+    height: 70px;/* Můžete upravit dle potřeby */
     
 
 }
+
+
 
 
 #navbar ul li::after{
@@ -92,8 +89,21 @@ body{
     color: rgb(246, 0, 0); /* Změna barvy odkazu při hoveru */
 }
 
+/* Responzivní styl pro mobilní zařízení */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column; /* Změní uspořádání odkazu na vertikální */
+        align-items: flex-start; /* Zarovná odkazy na začátek */
+    }
+
+    #navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Přidá mezery mezi odkazy */
+    }
+}
+
 #showcase{
-    background: red url("../img/uvodní.jpg") no-repeat center center/cover;
+    background: rgb(255, 255, 255) url("../img/uvodní.jpg") no-repeat center center/cover;
     height: 75vh;
     color: rgb(255, 255, 255); 
 
@@ -255,7 +265,7 @@ body{
 }
 @media (max-width: 820px) {
     .container{
-        margin: 40px 0;
+       
         height: 100%;
     }
     .container .content{
@@ -277,77 +287,83 @@ body{
     }
 }
 
-/* Kontejner pro boxy */
+/* Základní styly pro boxy s nemovitostmi */
 .box-container {
     display: flex;
-    justify-content: space-between; /* Rovnoměrné rozdělení mezi boxy */
-    gap: 20px; /* Mezery mezi boxy */
-    margin: 20px auto; /* Vnější okraj */
-    max-width: 1200px; /* Maximální šířka kontejneru */
-
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-/* Styl pro každý box */
+
+/* Styly pro jednotlivé boxy s nemovitostmi */
 .box {
-    flex: 1; /* Každý box zabírá stejnou šířku */
+    width: 30%; /* Tři sloupce na větších obrazovkách */
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    padding: 20px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 /* Efekt po najetí */
 .box:hover {
     transform: translateY(-5px);
 }
 
-/* Obrázek v boxu */
 .box img {
     width: 100%;
-    height: 180px;
-    object-fit: cover; /* Zachování rozměrů obrázku */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
-/* Nadpis */
 .box h3 {
-    margin: 10px 0;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    margin-bottom: 10px;
     color: #333;
 }
 
-/* Popis */
 .box p {
-    color: #777;
-    margin: 5px 0;
-}
-
-/* Cena */
-.box .price {
-    display: block;
-    margin: 10px 0;
-    color: red;
-    font-weight: bold;
     font-size: 1.1em;
+    margin-bottom: 10px;
 }
 
-/* Tlačítko */
-.detail-btn {
-    display: inline-block;
-    margin: 10px 0 15px;
-    padding: 8px 20px;
-    background-color: #e60000;
-    color: #fff;
+.box .price {
+    font-size: 1.4em;
+    color: #d9534f;
+    margin-bottom: 15px;
+}
+
+
+.box .detail-btn {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    background-color: #d9534f;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.detail-btn:hover {
-    background-color: #cc0000;
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responzivní úpravy pro zařízení s šířkou do 1024px (tablety) */
+@media (max-width: 1024px) {
+    .box {
+        width: 48%; /* Dva sloupce pro tablety a menší zařízení */
+    }
+}
+
+/* Responzivní úpravy pro mobilní zařízení (do 768px) */
+@media (max-width: 768px) {
+    .box {
+        width: 100%; /* Jeden sloupec pro mobilní zařízení */
+    }
 }
 
 /* Footer Container */
@@ -358,20 +374,20 @@ footer {
     font-family: Arial, sans-serif;
   }
   
-  .footer-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
   
-  .footer-section {
+/* Patička - Flexbox pro přizpůsobení různým obrazovkám */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+.footer-section {
     flex: 1;
-    margin: 10px;
     min-width: 200px;
-  }
+}
+
   
   .footer-section h3,
   .footer-section h2 {
@@ -383,6 +399,8 @@ footer {
     font-size: 0.9em;
     line-height: 1.6;
   }
+
+
   
   /* Rychlé odkazy */
   .footer-section.links ul {
@@ -405,25 +423,27 @@ footer {
   }
   
   /* Sociální ikony */
-  .footer-section.social a {
-    display: inline-block;
-    margin: 5px 10px 0 0;
+   /* Ikony v patičce */
+.footer-section.social a {
+    margin-right: 10px;
     font-size: 1.5em;
-    color: #ccc;
-    transition: color 0.3s ease;
-  }
+    color: #333;
+    text-decoration: none;
+}
   
-  .footer-section.social a:hover {
-    color: #e60000;
-  }
+.footer-section.social a:hover {
+    color: #d9534f;
+}
+  
+
   
   /* Spodní část */
   .footer-bottom {
     text-align: center;
-    padding-top: 10px;
-    border-top: 1px solid #444;
-    font-size: 0.8em;
-  }
+    margin-top: 20px;
+    font-size: 1em;
+    color: #777;
+}
   
   /* Sekce makléřů */
 .realtors {
@@ -438,62 +458,128 @@ footer {
     font-size: 2em;
   }
   
-  /* Kontejner karet */
-  .realtor-container {
+
+.realtor-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
-  }
+    padding: 20px;
+}
   
   /* Jedna karta makléře */
   .realtor-card {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 32%; /* Tři karty na desktopech */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 300px;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
   
   .realtor-card:hover {
     transform: translateY(-5px);
   }
   
   /* Fotografie makléře */
-  .realtor-card img {
-    width: 260px;
-    height: 260px;
-    border-radius:50%;
+  
+.realtor-card img {
+    width: 100%;
+    border-radius: 50%;
     margin-bottom: 15px;
-    object-fit: cover;
-    border: 3px solid #e60000;
-  }
+}
   
   /* Informace o makléři */
   .realtor-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
     color: #333;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-  }
+}
   
-  .realtor-card p {
-    color: #666;
-    font-size: 0.9em;
-    margin-bottom: 10px;
-  }
+.realtor-card p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+
+
+/* Hover efekt pro karty */
+.realtor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
   
   /* Kontaktní informace */
-  .realtor-contact p {
-    font-size: 0.9em;
-    color: #333;
-  }
+
+  .realtor-contact {
+    font-size: 1em;
+    color: #555;
+}
+ 
+.realtor-contact p {
+    margin: 5px 0;
+}
   
   .realtor-contact i {
     color: #e60000;
     margin-right: 5px;
   }
+
+  /* Responzivní design pro mobilní zařízení */
+@media (max-width: 1024px) {
+    .realtor-card {
+        width: 48%; /* Dva sloupce pro tablety a menší zařízení */
+    }
+}
+
+@media (max-width: 768px) {
+    .realtor-card {
+        width: 100%; /* Jeden sloupec pro mobilní zařízení */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
